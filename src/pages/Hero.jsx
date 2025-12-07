@@ -36,7 +36,7 @@ function useCountUp(target) {
 }
 
 export default function Hero() {
-  const projects = useCountUp(6);
+  const projects = useCountUp(3);
 
   return (
     <section
@@ -58,8 +58,17 @@ export default function Hero() {
 
           {/* TITLE */}
           <motion.h1
-            className="text-4xl md:text-6xl font-extrabold mb-4 flex flex-wrap justify-center md:justify-start
-            bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="
+              text-[28px] 
+              sm:text-4xl 
+              md:text-5xl 
+              lg:text-6xl 
+              font-extrabold mb-4 
+              flex flex-wrap justify-center md:justify-start
+              bg-gradient-to-r from-blue-600 to-purple-600 
+              bg-clip-text text-transparent
+              leading-tight
+            "
             initial="hidden"
             animate="visible"
           >
@@ -74,6 +83,7 @@ export default function Hero() {
               </motion.span>
             ))}
           </motion.h1>
+
 
           {/* SUBTITLE */}
           <motion.p

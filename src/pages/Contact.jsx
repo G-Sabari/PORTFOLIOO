@@ -12,7 +12,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // ✅ WORKING EMAIL SEND FUNCTION
+  // ✅ FINAL WORKING EMAIL FUNCTION (NO NESTING, NO ERRORS)
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,10 +20,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        "service_gf310hy",     // ✅ Your Service ID
+        "template_1z6sgm5",    // ✅ Your Template ID
+        form.current,         // ✅ Your Form Ref
+        "tlhsyFiEfm_Nkt7CN"    // ✅ Your Public Key
       )
       .then(
         () => {
@@ -70,41 +70,65 @@ export default function Contact() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="space-y-10"
+          className="space-y-8 sm:space-y-10"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-100 text-green-700 font-semibold text-sm w-fit">
+          {/* ✅ STATUS BADGE */}
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full 
+          bg-green-100 dark:bg-green-900/30 
+          text-green-700 dark:text-green-400 
+          font-semibold text-xs sm:text-sm w-fit">
             <span className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
             Available for Projects & Hiring
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="p-3 rounded-lg bg-blue-100 text-blue-600 text-xl">
+          {/* ✅ EMAIL */}
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-lg 
+            bg-blue-100 dark:bg-blue-900/30 
+            text-blue-600 dark:text-blue-400 text-xl">
               <MdEmail />
             </div>
-            <div>
-              <p className="font-semibold text-gray-900 dark:text-white">Email</p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <div className="leading-tight">
+              <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                Email
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm break-all">
                 rohitsabari045@example.com
               </p>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
                 Response within 24 hours
               </p>
             </div>
           </div>
 
+          {/* ✅ OPEN FOR */}
           <div>
-            <p className="font-semibold text-gray-900 dark:text-white mb-2">
+            <p
+              className="
+                text-xs sm:text-sm uppercase tracking-wide font-bold mb-3
+                text-gray-800 dark:text-gray-300
+              "
+            >
               Open For
             </p>
-            <ul className="text-gray-600 dark:text-gray-400 text-sm space-y-1 list-disc list-inside">
-              <li>Full Stack Developer Roles</li>
-              <li>Freelance Web Projects</li>
-              <li>Startup & Product Collaboration</li>
+
+            <ul
+              className="
+                text-sm space-y-2 list-disc list-inside
+                text-gray-600 dark:text-gray-400
+              "
+            >
+              <li className="leading-relaxed">Full Stack Developer Roles</li>
+              <li className="leading-relaxed">Freelance Web Projects</li>
+              <li className="leading-relaxed">Startup & Product Collaboration</li>
             </ul>
           </div>
 
-          <div className="rounded-xl p-4 bg-gray-100 dark:bg-zinc-800">
-            <p className="font-semibold text-gray-900 dark:text-white mb-1">
+
+          {/* ✅ LOCATION */}
+          <div className="rounded-xl p-4 
+          bg-gray-100 dark:bg-zinc-800">
+            <p className="font-semibold text-gray-900 dark:text-white mb-1 text-sm sm:text-base">
               Location
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -114,48 +138,93 @@ export default function Contact() {
 
           {/* ✅ SOCIAL LINKS */}
           <div>
-            <p className="font-semibold text-gray-900 dark:text-white mb-3">
+            <p
+              className="
+                text-xs sm:text-sm uppercase tracking-wide font-bold mb-4
+                text-gray-800 dark:text-gray-300
+              "
+            >
               Connect With Me
             </p>
 
-            <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+
+              {/* X / Twitter */}
               <a
                 href="https://x.com/rohitsabari045"
-                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-black dark:hover:text-white transition"
+                className="
+                  p-3 rounded-full
+                  bg-gray-100 dark:bg-zinc-800
+                  text-gray-700 dark:text-gray-300
+                  hover:bg-black hover:text-white
+                  dark:hover:bg-white dark:hover:text-black
+                  transition
+                "
               >
                 <FaXTwitter />
               </a>
 
+              {/* Instagram */}
               <a
                 href="https://www.instagram.com/rohit__sabarii"
-                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-pink-500 transition"
+                className="
+                  p-3 rounded-full
+                  bg-gray-100 dark:bg-zinc-800
+                  text-gray-700 dark:text-gray-300
+                  hover:bg-pink-500 hover:text-white
+                  transition
+                "
               >
                 <FaInstagram />
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com"
-                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-blue-600 transition"
+                className="
+                  p-3 rounded-full
+                  bg-gray-100 dark:bg-zinc-800
+                  text-gray-700 dark:text-gray-300
+                  hover:bg-blue-600 hover:text-white
+                  transition
+                "
               >
                 <FaLinkedin />
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/G-Sabari"
-                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-gray-900 dark:hover:text-white transition"
+                className="
+                  p-3 rounded-full
+                  bg-gray-100 dark:bg-zinc-800
+                  text-gray-700 dark:text-gray-300
+                  hover:bg-gray-900 hover:text-white
+                  dark:hover:bg-white dark:hover:text-black
+                  transition
+                "
               >
                 <FaGithub />
               </a>
 
+              {/* WhatsApp */}
               <a
                 href="https://wa.me/918754864826"
-                className="p-3 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                className="
+                  p-3 rounded-full
+                  bg-green-500 text-white
+                  hover:bg-green-600
+                  transition
+                "
               >
                 <FaWhatsapp />
               </a>
+
             </div>
           </div>
+
         </motion.div>
+
 
         {/* ================= RIGHT FORM ================= */}
         <motion.form
@@ -167,39 +236,69 @@ export default function Contact() {
           className="bg-white dark:bg-zinc-900 shadow-xl rounded-2xl p-8"
         >
           <div className="flex flex-col gap-6">
+
+            {/* NAME */}
             <input
               name="user_name"
               type="text"
-              className="border rounded-lg p-3"
+              className="
+                border rounded-lg p-3
+                bg-white dark:bg-zinc-900
+                text-gray-900 dark:text-white
+                placeholder-gray-500 dark:placeholder-gray-400
+                border-gray-300 dark:border-zinc-700
+                focus:outline-none focus:ring-2 focus:ring-blue-500
+              "
               placeholder="Your Name"
               required
             />
 
+            {/* EMAIL */}
             <input
               name="user_email"
               type="email"
-              className="border rounded-lg p-3"
+              className="
+                border rounded-lg p-3
+                bg-white dark:bg-zinc-900
+                text-gray-900 dark:text-white
+                placeholder-gray-500 dark:placeholder-gray-400
+                border-gray-300 dark:border-zinc-700
+                focus:outline-none focus:ring-2 focus:ring-blue-500
+              "
               placeholder="Your Email"
               required
             />
 
+            {/* MESSAGE */}
             <textarea
               name="message"
               rows="5"
-              className="border rounded-lg p-3"
+              className="
+                border rounded-lg p-3
+                bg-white dark:bg-zinc-900
+                text-gray-900 dark:text-white
+                placeholder-gray-500 dark:placeholder-gray-400
+                border-gray-300 dark:border-zinc-700
+                focus:outline-none focus:ring-2 focus:ring-blue-500
+              "
               placeholder="Tell me anything..."
               required
             />
 
+            {/* BUTTON */}
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-600 text-white py-3 rounded-lg text-lg 
-              hover:bg-blue-700 transition font-semibold disabled:opacity-60"
+              className="
+                bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold
+                hover:bg-blue-700 transition
+                disabled:opacity-60
+              "
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
 
+            {/* SUCCESS MESSAGE */}
             {success && (
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -209,8 +308,10 @@ export default function Contact() {
                 ✅ Message sent successfully! I’ll get back to you soon.
               </motion.p>
             )}
+
           </div>
         </motion.form>
+
       </div>
     </section>
   );
