@@ -70,9 +70,10 @@ I usually respond **within 24 hours**.
 ## 🌐 Live Portfolio
 
 🔗 **Live Website:**  
-_(Add your Vercel link here after deployment)_
+[Visit My Live Portfolio](https://portfolioo-six-liart.vercel.app/)
 
 ---
+
 
 ## 📦 How to Run This Project Locally
 
@@ -81,9 +82,4 @@ git clone https://github.com/G-Sabari/PORTFOLIOO.git
 cd PORTFOLIOO
 npm install
 npm run dev
-
-## 🌐 Live Portfolio
-
-🔗 **Live Website:**  
-[https://portfolioo-six-liart.vercel.app/](https://portfolioo-six-liart.vercel.app/)
 
