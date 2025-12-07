@@ -8,39 +8,39 @@ import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Contact() {
-  const form = useRef();
+  const form = useRef(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // ✅ WORKING EMAIL SEND FUNCTION
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
 
-    emailjs.sendForm(
-      "service_gf310hy",     // ✅ Your real Service ID
-      "template_1z6sgm5",    // ✅ Your real Template ID
-      form.current,
-      "tlhsyFiEfm_Nkt7CN" // Public key
-    )
-    .then(
-      () => {
-        setLoading(false);
-        setSuccess(true);
-        form.current.reset();
-      },
-      (error) => {
-        setLoading(false);
-        console.error("EmailJS Error:", error);
-        alert("Failed to send message. Try again later.");
-      }
-    );
-
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          setSuccess(true);
+          form.current.reset();
+        },
+        (error) => {
+          setLoading(false);
+          console.error("EmailJS Error:", error);
+          alert("Failed to send message. Try again later.");
+        }
+      );
   };
 
   return (
     <section id="contact" className="max-w-6xl mx-auto px-6 py-24">
-
       {/* ✅ HEADING */}
       <motion.h3
         className="text-4xl md:text-5xl font-extrabold mb-3 
@@ -55,7 +55,7 @@ export default function Contact() {
 
       {/* ✅ SUBTEXT */}
       <motion.p
-        className="mb-14 max-w-2xl text-muted"
+        className="mb-14 max-w-2xl text-gray-600 dark:text-gray-400"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -65,7 +65,6 @@ export default function Contact() {
       </motion.p>
 
       <div className="grid md:grid-cols-2 gap-14 items-start">
-
         {/* ================= LEFT PANEL ================= */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -73,7 +72,6 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           className="space-y-10"
         >
-
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-100 text-green-700 font-semibold text-sm w-fit">
             <span className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
             Available for Projects & Hiring
@@ -84,77 +82,79 @@ export default function Contact() {
               <MdEmail />
             </div>
             <div>
-              <p className="font-semibold text-[var(--text-color)]">Email</p>
-              <p className="text-muted text-sm">rohitsabari045@example.com</p>
-              <p className="text-xs text-muted mt-1">Response within 24 hours</p>
+              <p className="font-semibold text-gray-900 dark:text-white">Email</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                rohitsabari045@example.com
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                Response within 24 hours
+              </p>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-[var(--text-color)] mb-2">Open For</p>
-            <ul className="text-muted text-sm space-y-1 list-disc list-inside">
+            <p className="font-semibold text-gray-900 dark:text-white mb-2">
+              Open For
+            </p>
+            <ul className="text-gray-600 dark:text-gray-400 text-sm space-y-1 list-disc list-inside">
               <li>Full Stack Developer Roles</li>
               <li>Freelance Web Projects</li>
               <li>Startup & Product Collaboration</li>
             </ul>
           </div>
 
-          <div className="card rounded-xl p-4">
-            <p className="font-semibold text-[var(--text-color)] mb-1">Location</p>
-            <p className="text-muted text-sm">Chennai / India • Remote Friendly</p>
+          <div className="rounded-xl p-4 bg-gray-100 dark:bg-zinc-800">
+            <p className="font-semibold text-gray-900 dark:text-white mb-1">
+              Location
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Chennai / India • Remote Friendly
+            </p>
           </div>
 
-          {/* ✅ FULL BRAND HOVER COLORS */}
+          {/* ✅ SOCIAL LINKS */}
           <div>
-              <p className="font-semibold text-[var(--text-color)] mb-3">
-                Connect With Me
-              </p>
+            <p className="font-semibold text-gray-900 dark:text-white mb-3">
+              Connect With Me
+            </p>
 
-              <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-4 flex-wrap">
+              <a
+                href="https://x.com/rohitsabari045"
+                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-black dark:hover:text-white transition"
+              >
+                <FaXTwitter />
+              </a>
 
-                {/* X / Twitter */}
-                <a
-                  href="https://x.com/rohitsabari045?t=6awJwTqmYmyXgcBr5gYv9g&s=09"
-                  className="card p-3 rounded-full transition hover:text-black dark:hover:text-white"
-                >
-                  <FaXTwitter />
-                </a>
+              <a
+                href="https://www.instagram.com/rohit__sabarii"
+                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-pink-500 transition"
+              >
+                <FaInstagram />
+              </a>
 
-                {/* Instagram */}
-                <a
-                  href="https://www.instagram.com/rohit__sabarii?igsh=MWx6eG9jOGN4am04Yg=="
-                  className="card p-3 rounded-full transition hover:text-pink-500"
-                >
-                  <FaInstagram />
-                </a>
+              <a
+                href="https://www.linkedin.com"
+                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-blue-600 transition"
+              >
+                <FaLinkedin />
+              </a>
 
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/in/sabari-profile"
-                  className="card p-3 rounded-full transition hover:text-blue-600"
-                >
-                  <FaLinkedin />
-                </a>
+              <a
+                href="https://github.com/G-Sabari"
+                className="p-3 rounded-full bg-gray-100 dark:bg-zinc-800 hover:text-gray-900 dark:hover:text-white transition"
+              >
+                <FaGithub />
+              </a>
 
-                {/* GitHub */}
-                <a
-                  href="https://github.com/G-Sabari?tab=repositories"
-                  className="card p-3 rounded-full transition hover:text-gray-900 dark:hover:text-white"
-                >
-                  <FaGithub />
-                </a>
-
-                {/* WhatsApp */}
-                <a
-                  href="https://wa.me/918754864826"
-                  className="p-3 rounded-full bg-green-500 text-white transition hover:bg-green-600"
-                >
-                  <FaWhatsapp />
-                </a>
-
-              </div>
+              <a
+                href="https://wa.me/918754864826"
+                className="p-3 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+              >
+                <FaWhatsapp />
+              </a>
+            </div>
           </div>
-
         </motion.div>
 
         {/* ================= RIGHT FORM ================= */}
@@ -164,15 +164,13 @@ export default function Contact() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="card shadow-xl rounded-2xl p-8"
+          className="bg-white dark:bg-zinc-900 shadow-xl rounded-2xl p-8"
         >
           <div className="flex flex-col gap-6">
-
-            {/* ✅ CLEAN INPUTS (NO DUPLICATE PLACEHOLDERS) */}
             <input
               name="user_name"
               type="text"
-              className="floating-input"
+              className="border rounded-lg p-3"
               placeholder="Your Name"
               required
             />
@@ -180,7 +178,7 @@ export default function Contact() {
             <input
               name="user_email"
               type="email"
-              className="floating-input"
+              className="border rounded-lg p-3"
               placeholder="Your Email"
               required
             />
@@ -188,7 +186,7 @@ export default function Contact() {
             <textarea
               name="message"
               rows="5"
-              className="floating-textarea"
+              className="border rounded-lg p-3"
               placeholder="Tell me anything..."
               required
             />
@@ -213,7 +211,6 @@ export default function Contact() {
             )}
           </div>
         </motion.form>
-
       </div>
     </section>
   );
