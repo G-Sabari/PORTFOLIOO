@@ -1,16 +1,88 @@
-# React + Vite
+# 🚀 Sabari – Java Full Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio built to showcase my skills, projects, and professional journey as a **Java Full Stack Developer**.  
+This portfolio is designed for **real-world production standards**, not just demo visuals.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👨‍💻 About Me
 
-## React Compiler
+I am a passionate **Java Full Stack Developer** focused on building **scalable, secure, and performance-oriented web applications**.  
+I work with both **frontend and backend technologies** and enjoy solving real business problems through clean system design and maintainable code.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 💡 Strong in problem-solving & system thinking  
+- 🔥 Focused on real-world, production-ready projects  
+- 🌍 Open for internships, full-time roles & freelance work  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- JavaScript (ES6+)
+- Framer Motion
+
+### Backend
+- Java
+- Spring Boot
+- REST APIs
+
+### Database
+- MySQL
+- MongoDB (Basics)
+
+### Tools & Platforms
+- Git & GitHub
+- Vite
+- EmailJS
+- Vercel
+
+---
+
+## 📂 Featured Projects
+
+- **Netflix Clone** – React-based UI clone with API integration  
+- **Portfolio Website** – Personal portfolio built with React & Tailwind  
+- **Quiz App** – Interactive quiz application for students  
+
+Each project focuses on:
+- Clean UI/UX  
+- Component-based architecture  
+- Real-world use case handling  
+
+---
+
+## 📬 Contact & Collaboration
+
+You can directly reach me through the **Contact Form** on my portfolio (powered by EmailJS) or via:
+
+- LinkedIn  
+- GitHub  
+- Instagram  
+- WhatsApp  
+
+I usually respond **within 24 hours**.
+
+---
+
+## 🌐 Live Portfolio
+
+🔗 **Live Website:**  
+_(Add your Vercel link here after deployment)_
+
+---
+
+## 📦 How to Run This Project Locally
+
+```bash
+git clone https://github.com/G-Sabari/PORTFOLIOO.git
+cd PORTFOLIOO
+npm install
+npm run dev
+
+## 🌐 Live Portfolio
+
+🔗 **Live Website:**  
+https://portfolioo-six-liart.vercel.app/
