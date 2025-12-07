@@ -3,7 +3,7 @@ import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { skills } from "../../data/skillsData"; // adjust path if needed
+import { skills } from "../data/skillsData"; // adjust path if needed
 
 // Logos placed on a sphere
 function LogoSprites({ radius = 2.2 }) {
